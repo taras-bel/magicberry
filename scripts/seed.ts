@@ -72,17 +72,20 @@ async function main() {
 
   await prisma.user.upsert({
     where: { email: 'test@example.com' },
-    update: {},
+    update: {
+      role: 'ADMIN' // Обновить роль до ADMIN если пользователь существует
+    },
     create: {
       email: 'test@example.com',
-      name: 'Тестовый Пользователь',
+      name: 'Тестовый Админ',
       password: hashedPassword,
       phone: '+375 (00) 000-00-00',
-      company: 'Тестовая Компания'
+      company: 'Magic Berry Admin',
+      role: 'ADMIN' // Создать как ADMIN
     }
   })
 
-  console.log('✅ Test user created')
+  console.log('✅ Admin user created (test@example.com / password123)')
   console.log('🎉 Database seeded successfully!')
 }
 
