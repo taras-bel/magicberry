@@ -1,0 +1,471 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// Модель пользователя
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  phone     String?
+  company   String?
+  role      UserRole @default(CUSTOMER)
+  password  String
+  isActive  Boolean  @default(true)
+  loyaltyPoints Int   @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Связи
+  orders      Order[]
+  cart        Cart?
+  reviews     Review[]
+  notifications Notification[]
+  giftOrders  GiftOrder[]
+  accounts    Account[]
+  sessions    Session[]
+  loyaltyTransactions LoyaltyTransaction[]
+
+  @@map("users")
+}
+
+// Роли пользователей
+enum UserRole {
+  CUSTOMER
+  PARTNER
+  ADMIN
+}
+
+// NextAuth.js модели
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtokens")
+}
+
+// Категория продуктов
+model Category {
+  id          String @id @default(cuid())
+  name        String @unique
+  slug        String @unique
+  description String?
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Связи
+  products Product[]
+
+  @@map("categories")
+}
+
+// Продукт
+model Product {
+  id          String @id @default(cuid())
+  name        String
+  slug        String @unique
+  description String?
+  shortDescription String?
+  price       Float?
+  unit        String? // кг, шт, л
+  image       String?
+  placeholder String?
+  isActive    Boolean @default(true)
+  categoryId  String
+  tags        String? // JSON array of tags
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Связи
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  orderItems  OrderItem[]
+  cartItems   CartItem[]
+  reviews     Review[]
+
+  @@map("products")
+}
+
+// Корзина
+model Cart {
+  id        String @id @default(cuid())
+  userId    String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Связи
+  user      User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items     CartItem[]
+
+  @@map("carts")
+}
+
+// Элемент корзины
+model CartItem {
+  id        String @id @default(cuid())
+  cartId    String
+  productId String
+  quantity  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Связи
+  cart      Cart @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([cartId, productId])
+  @@map("cart_items")
+}
+
+// Заказ
+model Order {
+  id          String @id @default(cuid())
+  orderNumber String @unique
+  userId      String
+  status      OrderStatus @default(PENDING)
+  totalAmount Float
+
+  // Информация о доставке
+  shippingAddress String?
+  shippingCity    String?
+  shippingPhone   String?
+  shippingNotes   String?
+
+  // Информация об оплате
+  paymentMethod String?
+  paymentStatus PaymentStatus @default(PENDING)
+
+  // Скидки
+  couponId    String?
+  discountAmount Float? // сумма скидки
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Связи
+  user       User @relation(fields: [userId], references: [id])
+  items      OrderItem[]
+  notifications Notification[]
+  coupon     Coupon? @relation(fields: [couponId], references: [id])
+  loyaltyTransactions LoyaltyTransaction[]
+
+  @@map("orders")
+}
+
+// Статусы заказа
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+// Статусы оплаты
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+// Элемент заказа
+model OrderItem {
+  id        String @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int
+  price     Float // цена на момент заказа
+  createdAt DateTime @default(now())
+
+  // Связи
+  order     Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@map("order_items")
+}
+
+// Отзыв о продукте
+model Review {
+  id        String @id @default(cuid())
+  userId    String
+  productId String
+  rating    Int // 1-5
+  title     String?
+  comment   String?
+  isVerified Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Связи
+  user    User @relation(fields: [userId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("reviews")
+}
+
+// Уведомления пользователей
+model Notification {
+  id        String @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  type      NotificationType @default(INFO)
+  isRead    Boolean @default(false)
+  orderId   String? // ссылка на заказ, если уведомление связано с заказом
+  createdAt DateTime @default(now())
+
+  // Связи
+  user      User @relation(fields: [userId], references: [id])
+  order     Order? @relation(fields: [orderId], references: [id])
+
+  @@map("notifications")
+}
+
+// Типы уведомлений
+enum NotificationType {
+  INFO
+  SUCCESS
+  WARNING
+  ERROR
+  ORDER_UPDATE
+}
+
+// Промокоды
+model Coupon {
+  id          String @id @default(cuid())
+  code        String @unique
+  description String?
+  type        CouponType
+  value       Float // процент или фиксированная сумма
+  minOrderAmount Float? // минимальная сумма заказа
+  maxDiscount Float? // максимальная скидка для процентных купонов
+  usageLimit  Int? // лимит использования
+  usageCount  Int @default(0)
+  isActive    Boolean @default(true)
+  expiresAt   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Связи
+  orders      Order[]
+
+  @@map("coupons")
+}
+
+// Типы купонов
+enum CouponType {
+  PERCENTAGE // процентная скидка
+  FIXED      // фиксированная сумма
+  FREE_SHIPPING // бесплатная доставка
+}
+
+// Подписка на рассылку
+model Newsletter {
+  id        String @id @default(cuid())
+  email     String @unique
+  name      String?
+  isActive  Boolean @default(true)
+  subscribedAt DateTime @default(now())
+
+  @@map("newsletters")
+}
+
+// Пост в блоге
+model BlogPost {
+  id          String @id @default(cuid())
+  title       String
+  slug        String @unique
+  excerpt     String?
+  content     String?
+  coverImage  String?
+  tags        String? // JSON array
+  isPublished Boolean @default(false)
+  publishedAt DateTime?
+  author      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("blog_posts")
+}
+
+// Рецепт
+model Recipe {
+  id          String @id @default(cuid())
+  title       String
+  slug        String @unique
+  description String?
+  ingredients String? // JSON array
+  instructions String? // JSON array
+  time        String?
+  difficulty  String?
+  servings    Int?
+  image       String?
+  tags        String? // JSON array
+  isPublished Boolean @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("recipes")
+}
+
+// Документ
+model Document {
+  id          String @id @default(cuid())
+  title       String
+  description String?
+  fileUrl     String
+  fileSize    String?
+  fileType    String?
+  category    String?
+  isPublic    Boolean @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("documents")
+}
+
+// Заказ подарков
+model GiftOrder {
+  id          String @id @default(cuid())
+  userId      String?
+  orderNumber String @unique
+
+  // Контактная информация
+  contactName  String
+  contactEmail String
+  contactPhone String?
+  company      String?
+
+  // Детали заказа
+  giftConfig   String? // JSON конфигурация подарка
+  quantity     Int @default(1)
+  totalAmount  Float?
+
+  // Доставка
+  deliveryAddress String?
+  deliveryDate     DateTime?
+  deliveryNotes    String?
+
+  // Статус
+  status      GiftOrderStatus @default(PENDING)
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Связи
+  user        User? @relation(fields: [userId], references: [id])
+
+  @@map("gift_orders")
+}
+
+// Статусы заказов подарков
+enum GiftOrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  READY
+  DELIVERED
+  CANCELLED
+}
+
+// === ПРОГРАММА ЛОЯЛЬНОСТИ ===
+
+// Транзакции лояльности (начисление/списание баллов)
+model LoyaltyTransaction {
+  id          String   @id @default(cuid())
+  userId      String
+  type        LoyaltyTransactionType
+  points      Int      // положительное для начисления, отрицательное для списания
+  description String
+  orderId     String?  // ссылка на заказ, если баллы начислены за покупку
+  rewardId    String?  // ссылка на награду, если баллы потрачены
+  createdAt   DateTime @default(now())
+
+  // Связи
+  user        User     @relation(fields: [userId], references: [id])
+  order       Order?   @relation(fields: [orderId], references: [id])
+  reward      LoyaltyReward? @relation(fields: [rewardId], references: [id])
+
+  @@map("loyalty_transactions")
+}
+
+// Типы транзакций лояльности
+enum LoyaltyTransactionType {
+  EARNED     // заработано за покупку
+  SPENT      // потрачено на награду
+  EXPIRED    // истекли
+  BONUS      // бонус от админа
+  REFUND     // возврат баллов
+}
+
+// Награды программы лояльности
+model LoyaltyReward {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  type        LoyaltyRewardType
+  pointsCost  Int      // стоимость в баллах
+  value       Float?   // значение награды (процент скидки, сумма и т.д.)
+  isActive    Boolean  @default(true)
+  maxUses     Int?     // максимальное количество использований
+  usedCount   Int      @default(0)
+  expiresAt   DateTime?
+  createdAt   DateTime @default(now())
+
+  // Связи
+  transactions LoyaltyTransaction[]
+
+  @@map("loyalty_rewards")
+}
+
+// Типы наград
+enum LoyaltyRewardType {
+  DISCOUNT_PERCENTAGE  // процентная скидка на следующий заказ
+  DISCOUNT_FIXED       // фиксированная скидка
+  FREE_SHIPPING        // бесплатная доставка
+  FREE_PRODUCT         // бесплатный продукт
+  BONUS_POINTS         // дополнительные баллы
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "stores",
+  "info": {
+    "singularName": "store",
+    "pluralName": "stores",
+    "displayName": "Store"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "lat": { "type": "decimal" },
+    "lng": { "type": "decimal" },
+    "address": { "type": "text" }
+  }
+}
+
+

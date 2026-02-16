@@ -1,0 +1,20 @@
+{
+  "collectionName": "recipes",
+  "info": {
+    "singularName": "recipe",
+    "pluralName": "recipes",
+    "displayName": "Recipe"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title", "required": true },
+    "time": { "type": "string" },
+    "steps": { "type": "json" },
+    "tags": { "type": "json" }
+  }
+}
+
+

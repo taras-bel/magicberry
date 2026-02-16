@@ -1,0 +1,22 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фон -->
+  <rect width="512" height="512" rx="128" fill="#2d5a27"/>
+
+  <!-- Ягода (клюква) -->
+  <ellipse cx="256" cy="256" rx="180" ry="140" fill="#dc2626"/>
+  <ellipse cx="256" cy="256" rx="160" ry="120" fill="#ef4444"/>
+  <ellipse cx="256" cy="256" rx="140" ry="100" fill="#f87171"/>
+
+  <!-- Листочки -->
+  <ellipse cx="180" cy="180" rx="25" ry="40" fill="#16a34a" transform="rotate(-30 180 180)"/>
+  <ellipse cx="332" cy="180" rx="25" ry="40" fill="#16a34a" transform="rotate(30 332 180)"/>
+
+  <!-- Капельки -->
+  <circle cx="220" cy="220" r="8" fill="#ffffff" opacity="0.8"/>
+  <circle cx="280" cy="240" r="6" fill="#ffffff" opacity="0.8"/>
+  <circle cx="250" cy="280" r="5" fill="#ffffff" opacity="0.8"/>
+  <circle cx="300" cy="220" r="7" fill="#ffffff" opacity="0.8"/>
+
+  <!-- Блик -->
+  <ellipse cx="230" cy="200" rx="30" ry="20" fill="#ffffff" opacity="0.6"/>
+</svg>

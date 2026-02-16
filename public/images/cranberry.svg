@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img">
+  <rect width="800" height="600" fill="#fff5f7"/>
+  <circle cx="260" cy="320" r="120" fill="#e11d48"/>
+  <circle cx="420" cy="260" r="100" fill="#fb7185"/>
+  <circle cx="540" cy="340" r="140" fill="#be123c"/>
+  <text x="32" y="64" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#9f1239">Вяленая клюква</text>
+</svg>
+

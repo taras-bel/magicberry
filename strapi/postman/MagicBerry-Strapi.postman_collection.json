@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "MagicBerry Strapi",
+    "_postman_id": "b5b8f9c8-2f6b-4f8f-8c1f-collection",
+    "description": "Коллекция запросов для импорта данных в Strapi и проверки API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Products - GET (populate image)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": { "raw": "{{baseUrl}}/api/products?populate=image", "host": ["{{baseUrl}}"], "path": ["api","products"], "query":[{"key":"populate","value":"image"}] }
+      }
+    },
+    {
+      "name": "Products - CREATE",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"data\": {\n    \"name\": \"{{name}}\",\n    \"slug\": \"{{slug}}\",\n    \"shortDescription\": \"{{shortDescription}}\",\n    \"category\": \"{{category}}\",\n    \"priceFrom\": {{priceFrom}},\n    \"unit\": \"{{unit}}\",\n    \"tags\": {{tags}}\n  }\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/api/products", "host": ["{{baseUrl}}"], "path": ["api","products"] }
+      }
+    },
+    {
+      "name": "Posts - CREATE",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"data\": {\n    \"title\": \"{{title}}\",\n    \"slug\": \"{{slug}}\",\n    \"excerpt\": \"{{excerpt}}\",\n    \"date\": \"{{date}}\",\n    \"tags\": {{tags}},\n    \"content\": \"{{content}}\"\n  }\n}" },
+        "url": { "raw": "{{baseUrl}}/api/posts", "host": ["{{baseUrl}}"], "path": ["api","posts"] }
+      }
+    },
+    {
+      "name": "Recipes - CREATE",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"data\": {\n    \"title\": \"{{title}}\",\n    \"slug\": \"{{slug}}\",\n    \"time\": \"{{time}}\",\n    \"steps\": {{steps}},\n    \"tags\": {{tags}}\n  }\n}" },
+        "url": { "raw": "{{baseUrl}}/api/recipes", "host": ["{{baseUrl}}"], "path": ["api","recipes"] }
+      }
+    },
+    {
+      "name": "Documents - CREATE (multipart)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "files.file", "type": "file", "src": [] },
+            { "key": "data", "type": "text", "value": "{\"title\":\"{{title}}\"}" }
+          ]
+        },
+        "url": { "raw": "{{baseUrl}}/api/documents", "host": ["{{baseUrl}}"], "path": ["api","documents"] }
+      }
+    },
+    {
+      "name": "Stores - CREATE",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"data\": {\n    \"title\": \"{{title}}\",\n    \"lat\": {{lat}},\n    \"lng\": {{lng}},\n    \"address\": \"{{address}}\"\n  }\n}" },
+        "url": { "raw": "{{baseUrl}}/api/stores", "host": ["{{baseUrl}}"], "path": ["api","stores"] }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:1337" },
+    { "key": "token", "value": "" }
+  ]
+}
+
+

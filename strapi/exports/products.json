@@ -1,0 +1,49 @@
+[
+  {
+    "name": "Вяленая клюква",
+    "slug": "vialenaya-klyukva",
+    "shortDescription": "Яркая кисло-сладкая ягода, без консервантов",
+    "category": "packaged",
+    "priceFrom": 6.5,
+    "unit": "г",
+    "tags": ["ягоды", "витамины"]
+  },
+  {
+    "name": "Вяленая вишня",
+    "slug": "vialennaya-vishnya",
+    "shortDescription": "Насыщенный вкус и аромат, натуральная сладость",
+    "category": "weight",
+    "priceFrom": 18,
+    "unit": "кг",
+    "tags": ["ягоды"]
+  },
+  {
+    "name": "Тыква вяленая (слайсы)",
+    "slug": "tykva-konfitiur",
+    "shortDescription": "Мягкие ароматные слайсы, идеальны для снеков",
+    "category": "packaged",
+    "priceFrom": 5.9,
+    "unit": "г",
+    "tags": ["овощи", "снэки"]
+  },
+  {
+    "name": "Натуральный ягодный сироп",
+    "slug": "syrup-yagodnyj",
+    "shortDescription": "Для напитков, десертов и HoReCa",
+    "category": "syrup",
+    "priceFrom": 12,
+    "unit": "л",
+    "tags": ["сироп"]
+  },
+  {
+    "name": "Яблочное сусло",
+    "slug": "yablochnoe-suslo",
+    "shortDescription": "B2B-ингредиент для пищевой промышленности",
+    "category": "must",
+    "priceFrom": null,
+    "unit": "кг",
+    "tags": ["сусло", "b2b"]
+  }
+]
+
+
