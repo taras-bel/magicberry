@@ -43,7 +43,7 @@ export default async function OrderPage({ params }: Props) {
   }
 
   // Обогащаем товары переводами из статического файла
-  const enrichedItems = order.items.map((item) => {
+  const enrichedItems = order.items.map((item: any) => {
     const staticProduct = staticProducts.find(p => p.slug === item.product.slug)
     return {
       ...item,
