@@ -57,8 +57,8 @@ export async function GET(request: NextRequest) {
         _count: { productId: true },
         orderBy: { _count: { productId: 'desc' } },
         take: 5
-      }).then(async (groups) => {
-        const productIds = groups.map(g => g.productId);
+      }).then(async (groups: any) => {
+        const productIds = groups.map((g: any) => g.productId);
         const products = await prisma.product.findMany({
           where: { id: { in: productIds } },
           select: { id: true, name: true, image: true }
