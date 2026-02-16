@@ -27,7 +27,7 @@ export async function GET() {
     }
 
     // Обогащаем товары данными из статического файла (переводы)
-    const items = cart.items.map(item => {
+    const items = cart.items.map((item: any) => {
       const staticProduct = staticProducts.find(p => p.slug === item.product.slug)
       return {
         ...item,
@@ -40,7 +40,7 @@ export async function GET() {
       }
     })
 
-    const total = items.reduce((sum, item) => {
+    const total = items.reduce((sum: number, item: any) => {
       return sum + (item.product.price || 0) * item.quantity
     }, 0)
 
