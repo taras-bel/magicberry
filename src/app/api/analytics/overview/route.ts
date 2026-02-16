@@ -64,7 +64,7 @@ export async function GET(request: NextRequest) {
           select: { id: true, name: true, image: true }
         });
 
-        return groups.map(group => ({
+        return groups.map((group: any) => ({
           product: products.find(p => p.id === group.productId),
           count: group._count.productId
         }));
