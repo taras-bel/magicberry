@@ -19,14 +19,14 @@ async function main() {
 
     console.log(`📋 Найдено рецептов в базе: ${allRecipes.length}`);
 
-    const recipesToDelete = allRecipes.filter(recipe => {
+    const recipesToDelete = allRecipes.filter((recipe: any) => {
       const slugMatch = recipe.slug?.startsWith('generated-') || false;
       let tagsMatch = false;
       if (recipe.tags) {
         try {
           const tags = typeof recipe.tags === 'string' ? JSON.parse(recipe.tags) : recipe.tags;
           const tagsArray = Array.isArray(tags) ? tags : [];
-          tagsMatch = tagsArray.some(tag => 
+          tagsMatch = tagsArray.some((tag: any) => 
             typeof tag === 'string' && (
               tag.includes('AI') || 
               tag.includes('локальная модель') || 
