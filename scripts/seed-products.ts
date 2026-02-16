@@ -54,7 +54,7 @@ async function main() {
 
   // Получить все категории
   const categories = await prisma.category.findMany()
-  const categoryMap = new Map(categories.map(c => [c.slug, c.id]))
+  const categoryMap = new Map(categories.map((c: any) => [c.slug, c.id]))
 
   let added = 0
   let updated = 0
