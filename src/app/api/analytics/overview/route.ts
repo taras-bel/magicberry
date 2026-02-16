@@ -65,7 +65,7 @@ export async function GET(request: NextRequest) {
         });
 
         return groups.map((group: any) => ({
-          product: products.find(p => p.id === group.productId),
+          product: products.find((p: any) => p.id === group.productId),
           count: group._count.productId
         }));
       }),
@@ -96,7 +96,7 @@ export async function GET(request: NextRequest) {
         totalCustomers,
         averageOrderValue: totalOrders > 0 ? (totalRevenue._sum.totalAmount || 0) / totalOrders : 0
       },
-      recentOrders: recentOrders.map(order => ({
+      recentOrders: recentOrders.map((order: any) => ({
         id: order.id,
         orderNumber: order.orderNumber,
         totalAmount: order.totalAmount,
@@ -109,7 +109,7 @@ export async function GET(request: NextRequest) {
         itemsCount: order.items.length
       })),
       topProducts,
-      orderStatusStats: orderStatusStats.map(stat => ({
+      orderStatusStats: orderStatusStats.map((stat: any) => ({
         status: stat.status,
         count: stat._count.status
       })),
