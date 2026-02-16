@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
       prisma.orderItem.findMany({
         where: { orderId: result.id },
         include: { product: true }
-      }).then(orderItems => {
+      }).then((orderItems: any) => {
         const items = orderItems.map((item: any) => ({
           product: { name: item.product.name },
           quantity: item.quantity,
