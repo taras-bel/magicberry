@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
     ]);
 
     return NextResponse.json({
-      reviews: reviews.map(review => ({
+      reviews: reviews.map((review: any) => ({
         id: review.id,
         rating: review.rating,
         title: review.title,

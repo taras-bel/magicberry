@@ -62,16 +62,16 @@ export async function GET(
     });
 
     const averageRating = ratings.length > 0
-      ? ratings.reduce((sum, r) => sum + r.rating, 0) / ratings.length
+      ? ratings.reduce((sum: number, r: any) => sum + r.rating, 0) / ratings.length
       : 0;
 
     const ratingDistribution = [1, 2, 3, 4, 5].map(rating => ({
       rating,
-      count: ratings.filter(r => r.rating === rating).length
+      count: ratings.filter((r: any) => r.rating === rating).length
     }));
 
     return NextResponse.json({
-      reviews: reviews.map(review => ({
+      reviews: reviews.map((review: any) => ({
         id: review.id,
         rating: review.rating,
         title: review.title,

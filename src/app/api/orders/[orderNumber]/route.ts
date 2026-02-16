@@ -55,7 +55,7 @@ export async function GET(
       id: order.id,
       orderNumber: order.orderNumber,
       totalAmount: order.totalAmount,
-      items: order.items.map(item => ({
+      items: order.items.map((item: any) => ({
         productId: item.product.id,
         product: item.product,
         quantity: item.quantity,
