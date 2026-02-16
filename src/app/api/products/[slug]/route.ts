@@ -27,7 +27,7 @@ export async function GET(
 
     // Рассчитать средний рейтинг
     const averageRating = product.reviews.length > 0
-      ? product.reviews.reduce((sum, review) => sum + review.rating, 0) / product.reviews.length
+      ? product.reviews.reduce((sum: number, review: any) => sum + review.rating, 0) / product.reviews.length
       : 0
 
     return NextResponse.json({
@@ -43,7 +43,7 @@ export async function GET(
       category: product.category?.name,
       categorySlug: product.category?.slug,
       tags: product.tags ? JSON.parse(product.tags) : [],
-      reviews: product.reviews.map(review => ({
+      reviews: product.reviews.map((review: any) => ({
         id: review.id,
         rating: review.rating,
         title: review.title,
