@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
       prisma.product.count({ where })
     ])
 
-    const products = dbProducts.map(product => {
+    const products = dbProducts.map((product: any) => {
       const staticData = staticProducts.find(p => p.slug === product.slug);
       
       return {

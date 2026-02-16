@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
         where: { orderId: result.id },
         include: { product: true }
       }).then(orderItems => {
-        const items = orderItems.map(item => ({
+        const items = orderItems.map((item: any) => ({
           product: { name: item.product.name },
           quantity: item.quantity,
           price: item.price
@@ -120,7 +120,7 @@ export async function POST(request: NextRequest) {
           <p><strong>Способ оплаты:</strong> ${paymentMethod}</p>
           <h3>Товары:</h3>
           <ul>
-            ${items.map(item => `<li>${item.product.name} x ${item.quantity} = ${item.price * item.quantity} BYN</li>`).join('')}
+            ${items.map((item: any) => `<li>${item.product.name} x ${item.quantity} = ${item.price * item.quantity} BYN</li>`).join('')}
           </ul>
         `;
 
