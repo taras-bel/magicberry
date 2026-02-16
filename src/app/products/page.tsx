@@ -44,7 +44,7 @@ async function getProducts(category?: string, search?: string) {
     })
 
     // Merge DB data with static translations
-    const mergedProducts = dbProducts.map(product => {
+    const mergedProducts = dbProducts.map((product: any) => {
       const staticData = staticProducts.find(p => p.slug === product.slug);
       return {
         id: product.id,

@@ -32,7 +32,7 @@ async function getProduct(slug: string) {
 
     // Рассчитать средний рейтинг
     const averageRating = product.reviews.length > 0
-      ? product.reviews.reduce((sum, review) => sum + review.rating, 0) / product.reviews.length
+      ? product.reviews.reduce((sum: number, review: any) => sum + review.rating, 0) / product.reviews.length
       : 0;
 
     const staticData = staticProducts.find(p => p.slug === product.slug);
