@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
         orderBy: { createdAt: 'desc' }
       });
 
-      results.push(...products.map(product => ({
+      results.push(...products.map((product: any) => ({
         id: product.id,
         type: 'product' as const,
         title: product.name,
