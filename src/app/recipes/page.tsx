@@ -378,7 +378,7 @@ export default async function RecipesPage({ searchParams }: Props) {
             Присоединяйтесь к сообществу
           </h2>
           <p className="text-white/90 mb-10 text-xl font-normal leading-relaxed">
-            Делитесь своими рецептами с вялеными ягодами Magic Berry
+            Делитесь своими рецептами с вялеными ягодами Latvbelfruits
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/products" className="btn btn-secondary bg-white text-accent hover:bg-gray-50">

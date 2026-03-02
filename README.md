@@ -1,4 +1,4 @@
-Проект корпоративного сайта Magic berry на базе Next.js 14 (App Router) и Tailwind CSS.
+Проект корпоративного сайта Latvbelfruits на базе Next.js 14 (App Router) и Tailwind CSS.
 
 ## Запуск (Windows / PowerShell)
 

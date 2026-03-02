@@ -3,7 +3,7 @@ import DocsPageContent from "./DocsPageContent";
 
 export const metadata = {
   title: "Документы и сертификаты",
-  description: "Сертификаты качества, техническая документация и протоколы испытаний продукции Magic Berry.",
+  description: "Сертификаты качества, техническая документация и протоколы испытаний продукции Latvbelfruits.",
 };
 
 export default async function DocsPage() {

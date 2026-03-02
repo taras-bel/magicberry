@@ -80,7 +80,7 @@ export class RecipeGenerator {
       }
     }
 
-    // Если ингредиенты не найдены, используем предоставленные (уже с брендом "от Magic Berry")
+    // Если ингредиенты не найдены, используем предоставленные (уже с брендом "от Latvbelfruits")
     if (parsedIngredients.length === 0) {
       parsedIngredients = ingredients;
     }

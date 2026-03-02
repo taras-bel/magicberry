@@ -31,11 +31,11 @@ export const ru = {
     subtitle: "Вяленые ягоды, фрукты и сиропы премиального качества. Без консервантов и красителей. Только чистый вкус природы.",
     cta: "Каталог",
     since: "Since 2014",
-    about: "О технологии"
+    about: "О нас"
   },
   products: {
     title: "Продукция",
-    description: "Каталог натуральных вяленых ягод, фруктов, овощей и сиропов Magic Berry. Без консервантов и красителей.",
+    description: "Каталог натуральных вяленых ягод, фруктов, овощей и сиропов Latvbelfruits. Без консервантов и красителей.",
     popular: "Избранная коллекция",
     popular_desc: "Наши самые популярные вкусы, полюбившиеся тысячам клиентов.",
     view_all: "Весь каталог",
@@ -61,7 +61,7 @@ export const ru = {
     subtitle: "Широкий ассортимент вяленых ягод, фруктов, овощей и натуральных сиропов. Все продукты изготовлены по запатентованной технологии без консервантов и красителей.",
     view_catalog: "Смотреть каталог",
     why_choose: "Почему выбирают наши продукты",
-    why_choose_desc: "Преимущества натуральных вяленых продуктов Magic Berry",
+    why_choose_desc: "Преимущества натуральных вяленых продуктов Latvbelfruits",
     categories_title: "Категории продукции",
     categories_desc: "Выберите категорию, которая соответствует вашим потребностям",
     mix_builder_title: "Конструктор миксов",
@@ -81,7 +81,7 @@ export const ru = {
       vitamins: "Сохраняют витамины",
       vitamins_desc: "Запатентованная технология бережного вяления",
       storage: "Долгий срок хранения",
-      storage_desc: "До 12 месяцев в прохладном месте",
+      storage_desc: "До 12 месяцев",
       usage: "Универсальное использование",
       usage_desc: "В кулинарии, кондитерском деле и HoReCa"
     }
@@ -89,6 +89,8 @@ export const ru = {
   mix_builder: {
     title: "Конструктор миксов",
     description: "Создайте свой уникальный микс из наших натуральных вяленых продуктов. Выберите любимые ягоды, фрукты и овощи, установите нужные пропорции и получите идеальную смесь.",
+    unavailable_title: "Конструктор временно недоступен",
+    unavailable_desc: "Сейчас мы не собираем индивидуальные миксы. Оставьте заявку — мы сообщим, когда услуга вернётся.",
     steps: {
       select: "Выберите до 10 продуктов",
       proportions: "Установите пропорции",
@@ -121,11 +123,11 @@ export const ru = {
   },
   gifts_page: {
     title: "Корпоративные подарки",
-    subtitle: "Натуральные подарочные наборы с вялеными ягодами и сиропами от Magic Berry. Идеальный выбор для презента клиентам, партнерам и сотрудникам.",
+    subtitle: "Натуральные подарочные наборы с вялеными ягодами и сиропами от Latvbelfruits. Идеальный выбор для презента клиентам, партнерам и сотрудникам.",
     build_gift: "Собрать подарок",
     view_examples: "Примеры наборов",
     why_choose: "Почему выбирают наши подарки",
-    why_choose_desc: "Преимущества подарочных наборов Magic Berry",
+    why_choose_desc: "Преимущества подарочных наборов Latvbelfruits",
     examples_title: "Примеры подарочных наборов",
     examples_desc: "Готовые решения для разных бюджетов и поводов",
     configurator_title: "Соберите свой подарок",
@@ -223,22 +225,22 @@ export const ru = {
     cta_button: "Оставить отзыв",
     list: [
       {
-        name: "Анна Петрова", role: "Домохозяйка", text: "Вяленая клюква Magic Berry — это просто находка! Использую для выпечки пирогов, добавляю в каши и просто как полезный перекус. Натуральный вкус, без химии. Дети тоже обожают!"
+        name: "Анна Петрова", role: "Домохозяйка", text: "Вяленая клюква Latvbelfruits — это просто находка! Использую для выпечки пирогов, добавляю в каши и просто как полезный перекус. Натуральный вкус, без химии. Дети тоже обожают!"
       },
       {
-        name: "Михаил Сергеев", role: "Владелец кафе", company: "Кафе 'Зелёный сад'", text: "Работаем с Magic Berry уже год. Сиропы действительно натуральные, вкус стабильный. Клиенты отмечают качество. Особенно нравится клюквенный сироп — идеален для морсов и коктейлей."
+        name: "Михаил Сергеев", role: "Владелец кафе", company: "Кафе 'Зелёный сад'", text: "Работаем с Latvbelfruits уже год. Сиропы действительно натуральные, вкус стабильный. Клиенты отмечают качество. Особенно нравится клюквенный сироп — идеален для морсов и коктейлей."
       },
       {
         name: "Елена Ковалёва", role: "Повар", company: "Ресторан 'Традиции'", text: "Вяленые овощи и фрукты — отличная основа для наших блюд. Качество на высоте, никаких консервантов. Гости довольны натуральностью ингредиентов."
       },
       {
-        name: "Дмитрий Иванов", role: "Оптовый покупатель", text: "Поставляем продукцию Magic Berry в несколько магазинов. Надёжный партнёр, своевременные поставки, качественная продукция. Особенно ценю индивидуальный подход к заказам."
+        name: "Дмитрий Иванов", role: "Оптовый покупатель", text: "Поставляем продукцию Latvbelfruits в несколько магазинов. Надёжный партнёр, своевременные поставки, качественная продукция. Особенно ценю индивидуальный подход к заказам."
       },
       {
         name: "Мария Сидорова", role: "Мама двоих детей", text: "Идеальная замена магазинным сладостям! Вяленая клюква без сахара — отличный вариант для детского питания. Дети с удовольствием едят, а я спокойна за их здоровье."
       },
       {
-        name: "Алексей Новиков", role: "Бармен", company: "Бар 'Коктейли & Кофе'", text: "Сиропы Magic Berry — хороший выбор для натуральных коктейлей. Вкус насыщенный, цвет натуральный. Иногда хотелось бы больше разнообразия вкусов, но в целом очень довольны."
+        name: "Алексей Новиков", role: "Бармен", company: "Бар 'Коктейли & Кофе'", text: "Сиропы Latvbelfruits — хороший выбор для натуральных коктейлей. Вкус насыщенный, цвет натуральный. Иногда хотелось бы больше разнообразия вкусов, но в целом очень довольны."
       }
     ]
   },
@@ -319,7 +321,7 @@ export const ru = {
     }
   },
   about_page: {
-    title: "О предприятии Magic Berry",
+    title: "О предприятии Latvbelfruits",
     subtitle: "С 2014 года мы создаем натуральные вяленые продукты, сохраняя вкус и пользу природы",
     achievements: {
       exp: "лет опыта",
@@ -328,7 +330,7 @@ export const ru = {
       patents: "патента"
     },
     story_title: "Наша история",
-    story_text_1: "Компания Magic Berry была основана в 2014 году в Пинском районе Беларуси. Начав с небольшой фермы, мы выросли в современное предприятие, которое поставляет натуральные продукты по всей стране.",
+    story_text_1: "Компания Latvbelfruits была основана в 2014 году в Пинском районе Беларуси. Начав с небольшой фермы, мы выросли в современное предприятие, которое поставляет натуральные продукты по всей стране.",
     story_text_2: "Наша миссия — делать здоровое питание доступным и вкусным. Мы верим, что натуральные продукты должны быть такими же удобными в использовании, как и полезными для здоровья.",
     story_text_3: "За годы работы мы разработали уникальную запатентованную технологию бережного вяления, которая сохраняет все витамины и микроэлементы свежих ягод и фруктов.",
     tech_title: "Запатентованная технология",
@@ -357,7 +359,7 @@ export const ru = {
       culinary: { title: "Кулинарные ингредиенты", desc: "Продукты для кондитеров и профессиональных поваров" }
     },
     team_title: "Наша команда",
-    team_desc: "Профессионалы, которые делают Magic Berry особенным",
+    team_desc: "Профессионалы, которые делают Latvbelfruits особенным",
     team_members: [
       { name: "Иван Петрович", role: "Основатель и CEO", bio: "Основатель компании с 2014 года. Эксперт в области пищевых технологий." },
       { name: "Анна Сергеевна", role: "Технолог", bio: "Руководит разработкой новых продуктов и контролем качества." },
@@ -374,7 +376,7 @@ export const ru = {
     partner_btn: "Стать партнером",
     products_btn: "Наша продукция",
     advantages_title: "Почему выбирают нас",
-    advantages_desc: "Преимущества работы с Magic Berry для бизнеса",
+    advantages_desc: "Преимущества работы с Latvbelfruits для бизнеса",
     advantages_list: {
       quality: { title: "Качество и безопасность", desc: "Все продукты проходят многоступенчатый контроль качества и соответствуют требованиям безопасности" },
       stability: { title: "Стабильность поставок", desc: "Гарантируем своевременные поставки и стабильное качество продукции" },
@@ -574,7 +576,7 @@ export const ru = {
     forgot_password: "Забыли пароль?"
   },
   footer: {
-    about_title: "MAGIC BERRY",
+    about_title: "LATVBELFRUITS",
     about_text: "С 2014 года производим вяленые ягоды, фрукты и овощи по запатентованной технологии. Натурально, полезно и эстетично.",
     links_title: "Ссылки",
     contact_title: "Контакты",
@@ -582,7 +584,7 @@ export const ru = {
     subscribe_text: "Подпишитесь на новости и акции",
     email_placeholder: "Ваш email",
     subscribe_button: "Подписаться",
-    copyright: "Magic Berry."
+    copyright: "Latvbelfruits."
   },
   common: {
     loading: "Загрузка...",
@@ -739,7 +741,7 @@ export const en = {
   },
   products: {
     title: "Products",
-    description: "Catalog of natural dried berries, fruits, vegetables and syrups from Magic Berry. No preservatives or artificial colors.",
+    description: "Catalog of natural dried berries, fruits, vegetables and syrups from Latvbelfruits. No preservatives or artificial colors.",
     popular: "Featured Collection",
     popular_desc: "Our most popular flavors loved by thousands of customers.",
     view_all: "View All",
@@ -765,7 +767,7 @@ export const en = {
     subtitle: "Wide range of dried berries, fruits, vegetables and natural syrups. All products are made using patented technology without preservatives or dyes.",
     view_catalog: "View Catalog",
     why_choose: "Why Choose Our Products",
-    why_choose_desc: "Advantages of Magic Berry natural dried products",
+    why_choose_desc: "Advantages of Latvbelfruits natural dried products",
     categories_title: "Product Categories",
     categories_desc: "Choose a category that suits your needs",
     mix_builder_title: "Mix Builder",
@@ -785,7 +787,7 @@ export const en = {
       vitamins: "Retains Vitamins",
       vitamins_desc: "Patented gentle drying technology",
       storage: "Long Shelf Life",
-      storage_desc: "Up to 12 months in a cool place",
+      storage_desc: "Up to 12 months",
       usage: "Universal Use",
       usage_desc: "In cooking, confectionery and HoReCa"
     }
@@ -793,6 +795,8 @@ export const en = {
   mix_builder: {
     title: "Mix Builder",
     description: "Create your unique mix from our natural dried products. Choose your favorite berries, fruits and vegetables, set the proportions and get the perfect blend.",
+    unavailable_title: "Mix builder is temporarily unavailable",
+    unavailable_desc: "We currently cannot assemble custom mixes. Leave us a note and we will let you know once the service returns.",
     steps: {
       select: "Select up to 10 products",
       proportions: "Set proportions",
@@ -825,11 +829,11 @@ export const en = {
   },
   gifts_page: {
     title: "Corporate Gifts",
-    subtitle: "Natural gift sets with dried berries and syrups from Magic Berry. The ideal choice for a gift to clients, partners and employees.",
+    subtitle: "Natural gift sets with dried berries and syrups from Latvbelfruits. The ideal choice for a gift to clients, partners and employees.",
     build_gift: "Build a Gift",
     view_examples: "Gift Examples",
     why_choose: "Why Choose Our Gifts",
-    why_choose_desc: "Advantages of Magic Berry gift sets",
+    why_choose_desc: "Advantages of Latvbelfruits gift sets",
     examples_title: "Gift Set Examples",
     examples_desc: "Ready-made solutions for different budgets and occasions",
     configurator_title: "Build Your Gift",
@@ -927,22 +931,22 @@ export const en = {
     cta_button: "Leave a Review",
     list: [
       {
-        name: "Anna Petrova", role: "Housewife", text: "Magic Berry dried cranberries are simply a find! I use them for baking pies, add them to porridge and just as a healthy snack. Natural taste, no chemicals. Kids love them too!"
+        name: "Anna Petrova", role: "Housewife", text: "Latvbelfruits dried cranberries are simply a find! I use them for baking pies, add them to porridge and just as a healthy snack. Natural taste, no chemicals. Kids love them too!"
       },
       {
-        name: "Mikhail Sergeev", role: "Cafe Owner", company: "Green Garden Cafe", text: "We've been working with Magic Berry for a year now. The syrups are truly natural, the taste is stable. Clients note the quality. Especially like the cranberry syrup — perfect for fruit drinks and cocktails."
+        name: "Mikhail Sergeev", role: "Cafe Owner", company: "Green Garden Cafe", text: "We've been working with Latvbelfruits for a year now. The syrups are truly natural, the taste is stable. Clients note the quality. Especially like the cranberry syrup — perfect for fruit drinks and cocktails."
       },
       {
         name: "Elena Kovaleva", role: "Chef", company: "Traditions Restaurant", text: "Dried vegetables and fruits are an excellent basis for our dishes. The quality is top notch, no preservatives. Guests are happy with the natural ingredients."
       },
       {
-        name: "Dmitry Ivanov", role: "Wholesale Buyer", text: "We supply Magic Berry products to several stores. Reliable partner, timely deliveries, quality products. I especially appreciate the individual approach to orders."
+        name: "Dmitry Ivanov", role: "Wholesale Buyer", text: "We supply Latvbelfruits products to several stores. Reliable partner, timely deliveries, quality products. I especially appreciate the individual approach to orders."
       },
       {
         name: "Maria Sidorova", role: "Mother of two", text: "The perfect replacement for store-bought sweets! Sugar-free dried cranberries are a great option for baby food. Children eat with pleasure, and I am calm about their health."
       },
       {
-        name: "Alexey Novikov", role: "Bartender", company: "Cocktails & Coffee Bar", text: "Magic Berry syrups are a good choice for natural cocktails. The taste is rich, the color is natural. Sometimes I would like more variety of flavors, but overall very satisfied."
+        name: "Alexey Novikov", role: "Bartender", company: "Cocktails & Coffee Bar", text: "Latvbelfruits syrups are a good choice for natural cocktails. The taste is rich, the color is natural. Sometimes I would like more variety of flavors, but overall very satisfied."
       }
     ]
   },
@@ -1023,7 +1027,7 @@ export const en = {
     }
   },
   about_page: {
-    title: "About Magic Berry",
+    title: "About Latvbelfruits",
     subtitle: "Since 2014, we have been creating natural dried products, preserving the taste and benefits of nature",
     achievements: {
       exp: "years of experience",
@@ -1032,7 +1036,7 @@ export const en = {
       patents: "patents"
     },
     story_title: "Our History",
-    story_text_1: "Magic Berry was founded in 2014 in the Pinsk district of Belarus. Starting as a small farm, we have grown into a modern enterprise supplying natural products throughout the country.",
+    story_text_1: "Latvbelfruits was founded in 2014 in the Pinsk district of Belarus. Starting as a small farm, we have grown into a modern enterprise supplying natural products throughout the country.",
     story_text_2: "Our mission is to make healthy eating accessible and delicious. We believe that natural products should be as convenient to use as they are healthy.",
     story_text_3: "Over the years, we have developed a unique patented gentle drying technology that preserves all vitamins and microelements of fresh berries and fruits.",
     tech_title: "Patented Technology",
@@ -1061,7 +1065,7 @@ export const en = {
       culinary: { title: "Culinary Ingredients", desc: "Products for confectioners and professional chefs" }
     },
     team_title: "Our Team",
-    team_desc: "Professionals who make Magic Berry special",
+    team_desc: "Professionals who make Latvbelfruits special",
     team_members: [
       { name: "Ivan Petrovich", role: "Founder and CEO", bio: "Company founder since 2014. Expert in food technology." },
       { name: "Anna Sergeevna", role: "Technologist", bio: "Leads the development of new products and quality control." },
@@ -1078,7 +1082,7 @@ export const en = {
     partner_btn: "Become a Partner",
     products_btn: "Our Products",
     advantages_title: "Why Choose Us",
-    advantages_desc: "Advantages of working with Magic Berry for business",
+    advantages_desc: "Advantages of working with Latvbelfruits for business",
     advantages_list: {
       quality: { title: "Quality and Safety", desc: "All products undergo multi-stage quality control and meet safety requirements" },
       stability: { title: "Supply Stability", desc: "We guarantee timely deliveries and stable product quality" },
@@ -1278,7 +1282,7 @@ export const en = {
     forgot_password: "Forgot password?"
   },
   footer: {
-    about_title: "MAGIC BERRY",
+    about_title: "LATVBELFRUITS",
     about_text: "Since 2014 we produce dried berries, fruits and vegetables using patented technology. Natural, healthy and aesthetic.",
     links_title: "Links",
     contact_title: "Contacts",
@@ -1286,7 +1290,7 @@ export const en = {
     subscribe_text: "Subscribe to news and promotions",
     email_placeholder: "Your email",
     subscribe_button: "Subscribe",
-    copyright: "Magic Berry."
+    copyright: "Latvbelfruits."
   },
   common: {
     loading: "Loading...",

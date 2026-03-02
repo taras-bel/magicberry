@@ -9,7 +9,7 @@ export function productJsonLd(p: Product) {
     image: p.image ? [absoluteUrl(p.image)] : [],
     brand: {
       "@type": "Brand",
-      name: "Magic berry",
+      name: "Latvbelfruits",
     },
     offers: p.priceFrom
       ? {
@@ -28,7 +28,7 @@ export function absoluteUrl(path: string) {
   const base =
     typeof process !== "undefined" && process.env.NEXT_PUBLIC_SITE_URL
       ? process.env.NEXT_PUBLIC_SITE_URL
-      : "https://example.com";
+      : "https://latvbelfruits.by";
   return new URL(path, base).toString();
 }
 

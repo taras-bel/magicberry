@@ -9,7 +9,6 @@ export const primaryNav: NavItem[] = [
     label: "products_group", // Группа "Продукция"
     children: [
       { label: "products", href: "/products" },
-      { label: "mixes", href: "/mixes" },
       { label: "gifts", href: "/gifts" },
     ]
   },

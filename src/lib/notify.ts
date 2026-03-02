@@ -39,7 +39,7 @@ async function sendEmail(kind: string, payload: Payload) {
     body: JSON.stringify({
       from,
       to,
-      subject: `Magic berry: новая заявка (${kind})`,
+      subject: `Latvbelfruits: новая заявка (${kind})`,
       html: `<pre>${escapeHtml(JSON.stringify(payload, null, 2))}</pre>`,
     }),
   });

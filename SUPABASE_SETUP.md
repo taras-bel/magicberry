@@ -1,4 +1,4 @@
-# Настройка Supabase для Magic Berry
+# Настройка Supabase для Latvbelfruits
 
 Ваш проект настроен для работы с Supabase (PostgreSQL). Prisma ORM будет автоматически управлять структурой базы данных.
 

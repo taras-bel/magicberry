@@ -25,12 +25,12 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Magic berry",
-    default: "Magic berry — вяленые ягоды, фрукты, овощи и сиропы",
+    template: "%s | Latvbelfruits",
+    default: "Latvbelfruits — вяленые ягоды, фрукты, овощи и сиропы",
   },
   description:
     "Производство натуральных вяленых ягод, фруктов и овощей, а также сиропов. Без консервантов, красителей и диоксида серы. Основаны в 2014 году.",
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://latvbelfruits.by"),
          icons: {
            icon: "/favicon.ico",
            apple: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
          appleWebApp: {
            capable: true,
            statusBarStyle: "default",
-           title: "Magic Berry",
+           title: "Latvbelfruits",
            startupImage: [
              {
                url: "/icons/icon-512x512.png",
@@ -61,18 +61,18 @@ export const metadata: Metadata = {
     "mobile-web-app-capable": "yes",
   },
   openGraph: {
-    title: "Magic berry — натуральные вяленые ягоды и сиропы",
+    title: "Latvbelfruits — натуральные вяленые ягоды и сиропы",
     description:
       "Запатентованная технология бережного вяления. Натурально и вкусно.",
-    url: "https://example.com",
-    siteName: "Magic berry",
+    url: "https://latvbelfruits.by",
+    siteName: "Latvbelfruits",
     images: [{ url: "/images/products/cranberry-1600.webp", width: 1600, height: 1200 }],
     locale: "ru_RU",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Magic berry — натуральные вяленые ягоды и сиропы",
+    title: "Latvbelfruits — натуральные вяленые ягоды и сиропы",
     description: "Запатентованная технология бережного вяления.",
     images: ["/images/products/cranberry-1600.webp"],
   },

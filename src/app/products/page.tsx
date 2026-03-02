@@ -4,8 +4,8 @@ import ProductsPageContent from "./ProductsPageContent";
 import { products as staticProducts } from "@/data/products";
 
 export const metadata = {
-  title: "Продукция | Magic Berry",
-  description: "Каталог натуральных вяленых ягод, фруктов, овощей и сиропов Magic Berry. Без консервантов и красителей.",
+  title: "Продукция | Latvbelfruits",
+  description: "Каталог натуральных вяленых ягод, фруктов, овощей и сиропов Latvbelfruits. Без консервантов и красителей.",
 };
 
 type Props = {

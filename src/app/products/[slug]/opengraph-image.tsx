@@ -3,7 +3,7 @@ import { products } from "@/data/products";
 
 export const runtime = "edge";
 
-export const alt = "Magic berry — продукт";
+export const alt = "Latvbelfruits — продукт";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -11,7 +11,7 @@ type Props = { params: { slug: string } };
 
 export default function Image({ params }: Props) {
   const product = products.find((p) => p.slug === params.slug);
-  const title = product?.name ?? "Magic berry";
+  const title = product?.name ?? "Latvbelfruits";
   return new ImageResponse(
     (
       <div

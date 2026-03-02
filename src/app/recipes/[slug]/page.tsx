@@ -174,7 +174,7 @@ export default function RecipePage({ params }: Props) {
                 {recipe.siteProductsUsed && recipe.siteProductsUsed.length > 0 && (
                   <span className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-orange-50 to-red-50 text-orange-700 rounded-full text-sm font-medium border border-orange-200">
                     <CheckCircle className="w-4 h-4" />
-                    Magic Berry
+                    Latvbelfruits
                   </span>
                 )}
               </div>

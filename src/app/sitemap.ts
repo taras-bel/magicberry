@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { products } from '@/data/products';
 import { recipes } from '@/data/recipes';
 
-const baseUrl = process.env.NEXTAUTH_URL || 'https://magicberry.by';
+const baseUrl = process.env.NEXTAUTH_URL || 'https://latvbelfruits.by';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Статические страницы

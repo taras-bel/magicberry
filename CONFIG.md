@@ -1,12 +1,12 @@
-# Конфигурация Magic Berry
+# Конфигурация Latvbelfruits
 
 ## Обзор
 
-Этот файл содержит инструкции по настройке всех внешних сервисов и API ключей для проекта Magic Berry.
+Этот файл содержит инструкции по настройке всех внешних сервисов и API ключей для проекта Latvbelfruits.
 
 ## Настройка переменных окружения
 
-Создайте файл `.env.local` в корне проекта `magicberry-site/` и заполните следующие переменные:
+Создайте файл `.env.local` в корне проекта `latvbelfruits-site/` и заполните следующие переменные:
 
 ### Базовая настройка
 
@@ -56,8 +56,8 @@ GITHUB_CLIENT_SECRET=ваш-github-client-secret
 Для отправки email уведомлений настройте SMTP:
 
 ```env
-EMAIL_FROM=noreply@magicberry.com
-ADMIN_EMAIL=admin@magicberry.com
+EMAIL_FROM=noreply@latvbelfruits.com
+ADMIN_EMAIL=admin@latvbelfruits.com
 EMAIL_SERVER_HOST=smtp.gmail.com
 EMAIL_SERVER_PORT=587
 EMAIL_SERVER_USER=ваш-email@gmail.com

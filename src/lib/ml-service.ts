@@ -236,9 +236,9 @@ class MLService {
     for (const product of products) {
       const productName = product.name.toLowerCase();
       if (lowerMessage.includes(productName)) {
-        // Если это продукт Magic Berry, добавляем его с указанием бренда
+        // Если это продукт Latvbelfruits, добавляем его с указанием бренда
         if (productName.includes('вялен') || productName.includes('сироп')) {
-          allIngredients.push(`${product.name} от Magic Berry`);
+          allIngredients.push(`${product.name} от Latvbelfruits`);
         } else {
           allIngredients.push(product.name);
         }
@@ -266,12 +266,12 @@ class MLService {
       });
 
       if (generatedRecipe) {
-        // Формируем список ингредиентов с брендом Magic Berry, если это наши продукты
+        // Формируем список ингредиентов с брендом Latvbelfruits, если это наши продукты
         const formattedIngredients = generatedRecipe.ingredients.map(ing => {
           const lowerIng = ing.toLowerCase();
           if (lowerIng.includes('клюква') || lowerIng.includes('вишня') || lowerIng.includes('тыква') || lowerIng.includes('вялен')) {
-            if (!ing.includes('от Magic Berry')) {
-              return `${ing} от Magic Berry`;
+            if (!ing.includes('от Latvbelfruits')) {
+              return `${ing} от Latvbelfruits`;
             }
           }
           return ing;

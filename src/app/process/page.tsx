@@ -146,7 +146,7 @@ export default function ProcessPage() {
             <div className="relative">
               <Image
                 src="/images/products/cranberry-heap-1200.webp"
-                alt="Процесс производства Magic Berry"
+                alt="Процесс производства Latvbelfruits"
                 width={600}
                 height={400}
                 className="rounded-xl shadow-lg"

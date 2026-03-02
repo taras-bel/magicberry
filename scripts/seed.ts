@@ -80,7 +80,7 @@ async function main() {
       name: 'Тестовый Админ',
       password: hashedPassword,
       phone: '+375 (00) 000-00-00',
-      company: 'Magic Berry Admin',
+      company: 'Latvbelfruits Admin',
       role: 'ADMIN' // Создать как ADMIN
     }
   })

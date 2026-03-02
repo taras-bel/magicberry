@@ -154,7 +154,7 @@ class RecipeSearchService {
         {
           headers: {
             'Accept': 'application/json',
-            'User-Agent': 'MagicBerry-RecipeBot/1.0',
+            'User-Agent': 'Latvbelfruits-RecipeBot/1.0',
           },
         }
       );
@@ -197,7 +197,7 @@ class RecipeSearchService {
       return {
         title: generatedRecipe.title,
         description: generatedRecipe.description,
-        source: 'Magic Berry AI (OpenRouter)',
+        source: 'Latvbelfruits AI (OpenRouter)',
         ingredients: generatedRecipe.ingredients,
         instructions: generatedRecipe.instructions,
         prepTime: generatedRecipe.prepTime,
@@ -226,7 +226,7 @@ class RecipeSearchService {
     return {
       title: `Простое блюдо с ${mainIngredients}`,
       description: `Легкий рецепт с использованием ${mainIngredients}`,
-      source: 'Magic Berry (Fallback)',
+      source: 'Latvbelfruits (Fallback)',
       ingredients: ingredients.map(ing => `${ing} - по вкусу`),
       instructions: [
         'Подготовьте все ингредиенты',
@@ -560,9 +560,9 @@ class RecipeSearchService {
         ...siteProducts.map(p => {
           // Формируем название продукта с брендом
           let productName = p.name;
-          // Добавляем "от Magic Berry" если это продукт сайта
-          if (!productName.toLowerCase().includes('magic berry') && !productName.toLowerCase().includes('от magic berry')) {
-            productName = `${productName} от Magic Berry`;
+          // Добавляем "от Latvbelfruits" если это продукт сайта
+          if (!productName.toLowerCase().includes('latvbelfruits') && !productName.toLowerCase().includes('от latvbelfruits')) {
+            productName = `${productName} от Latvbelfruits`;
           }
           return productName;
         }),
@@ -583,8 +583,8 @@ class RecipeSearchService {
           title: idea.title,
           siteProductsUsed: siteProducts.map(p => p.name),
           generated: true,
-          source: 'Magic Berry AI',
-          tags: [...(aiRecipe.tags || []), 'с продуктами magic berry', idea.type]
+          source: 'Latvbelfruits AI',
+          tags: [...(aiRecipe.tags || []), 'с продуктами latvbelfruits', idea.type]
         };
       }
     } catch (error) {

@@ -50,11 +50,6 @@ const benefits = [
     titleKey: "storage",
     descKey: "storage_desc",
     icon: "⏰"
-  },
-  {
-    titleKey: "usage",
-    descKey: "usage_desc",
-    icon: "🍽️"
   }
 ];
 
@@ -192,28 +187,28 @@ export default function ProductsPageContent({ products, category }: ProductsPage
                 </Link>
               ))}
               
-              {/* Mix Builder Card */}
+              {/* Gift Card */}
               <Link
-                href="/mixes"
+                href="/gifts"
                 className="card-premium block group ring-2 ring-[color:var(--berry)]/20"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-berry/10 to-gold/10">
                   <Image
-                    src="/images/categories/cat-mixes.png"
-                    alt={t('products_page.mix_builder_title')}
+                    src="/images/categories/cat-gifts.png"
+                    alt={t('products_page.gift_card_title')}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute top-4 left-4 text-4xl opacity-80">🥣</div>
+                  <div className="absolute top-4 left-4 text-4xl opacity-80">🎁</div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-berry transition-colors">
-                    {t('products_page.mix_builder_title')}
+                    {t('products_page.gift_card_title')}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    {t('products_page.mix_builder_desc')}
+                    {t('products_page.gift_card_desc')}
                   </p>
                 </div>
               </Link>

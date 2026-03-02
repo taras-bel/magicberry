@@ -22,7 +22,7 @@ export const posts: Post[] = [
   {
     slug: "syrupy-dlya-napitkov",
     title: "Натуральные сиропы для напитков и десертов",
-    excerpt: "Как правильно использовать сиропы Magic berry в баре и на кухне.",
+    excerpt: "Как правильно использовать сиропы Latvbelfruits в баре и на кухне.",
     date: "2025-02-03",
     cover: "/images/products/fruit-mix-1200.webp",
     content: [

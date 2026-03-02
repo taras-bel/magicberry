@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { recipes } from "@/data/recipes";
 
 export const runtime = "edge";
-export const alt = "Magic berry — рецепт";
+export const alt = "Latvbelfruits — рецепт";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

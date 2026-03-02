@@ -28,7 +28,7 @@ export const config = {
 
   // Email service
   email: {
-    from: process.env.EMAIL_FROM || 'noreply@magicberry.com',
+    from: process.env.EMAIL_FROM || 'noreply@latvbelfruits.com',
     adminEmail: process.env.ADMIN_EMAIL || 'Latvbelfruits@mail.ru',
     server: {
       host: process.env.EMAIL_SERVER_HOST || '',

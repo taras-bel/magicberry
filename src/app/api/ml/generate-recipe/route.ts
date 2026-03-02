@@ -26,12 +26,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Форматируем ингредиенты: если это продукты Magic Berry, добавляем бренд
+    // Форматируем ингредиенты: если это продукты Latvbelfruits, добавляем бренд
     const formattedIngredients = ingredients.map((ing: string) => {
       const lowerIng = ing.toLowerCase();
       if (lowerIng.includes('клюква') || lowerIng.includes('вишня') || lowerIng.includes('тыква') || lowerIng.includes('вялен')) {
-        if (!ing.includes('от Magic Berry')) {
-          return `${ing} от Magic Berry`;
+        if (!ing.includes('от Latvbelfruits')) {
+          return `${ing} от Latvbelfruits`;
         }
       }
       return ing;

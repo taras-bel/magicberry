@@ -17,7 +17,7 @@ const transporter = isConfigured.email()
 // Шаблоны email
 export const emailTemplates = {
   welcome: (userName: string) => ({
-    subject: 'Добро пожаловать в Magic Berry!',
+    subject: 'Добро пожаловать в Latvbelfruits!',
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h1 style="color: #8B5A3C;">Добро пожаловать, ${userName}!</h1>
@@ -99,7 +99,7 @@ export const emailTemplates = {
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h1 style="color: #8B5A3C;">Восстановление пароля</h1>
-        <p>Вы запросили восстановление пароля для аккаунта на сайте Magic Berry.</p>
+        <p>Вы запросили восстановление пароля для аккаунта на сайте Latvbelfruits.</p>
         <p>Для сброса пароля перейдите по ссылке:</p>
         <a href="${resetLink}" style="display: inline-block; background: #8B5A3C; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 10px 0;">
           Сбросить пароль
@@ -114,16 +114,16 @@ export const emailTemplates = {
   }),
 
   newsletter: (content: string, unsubscribeLink: string) => ({
-    subject: 'Новости от Magic Berry',
+    subject: 'Новости от Latvbelfruits',
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h1 style="color: #8B5A3C;">Новости от Magic Berry</h1>
+        <h1 style="color: #8B5A3C;">Новости от Latvbelfruits</h1>
         <div style="margin: 20px 0;">
           ${content}
         </div>
         <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
         <p style="color: #666; font-size: 12px;">
-          Вы получили это письмо, потому что подписаны на рассылку Magic Berry.
+          Вы получили это письмо, потому что подписаны на рассылку Latvbelfruits.
           <a href="${unsubscribeLink}">Отписаться от рассылки</a>
         </p>
       </div>
@@ -167,7 +167,7 @@ export async function sendEmail(
     }
 
     const mailOptions = {
-      from: `"Magic Berry" <${config.email.from}>`,
+      from: `"Latvbelfruits" <${config.email.from}>`,
       to,
       subject,
       html
@@ -214,9 +214,9 @@ export async function sendAdminNotification(
 
   try {
     const mailOptions = {
-      from: `"Magic Berry System" <${config.email.from}>`,
+      from: `"Latvbelfruits System" <${config.email.from}>`,
       to: config.email.adminEmail,
-      subject: `[Magic Berry] ${subject}`,
+      subject: `[Latvbelfruits] ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #8B5A3C;">${subject}</h2>
@@ -226,7 +226,7 @@ export async function sendAdminNotification(
           ${orderId ? `<p><strong>Заказ:</strong> <a href="${process.env.NEXTAUTH_URL}/dashboard/orders/${orderId}">№${orderId}</a></p>` : ''}
           <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
           <p style="color: #666; font-size: 12px;">
-            Это автоматическое уведомление системы Magic Berry.
+            Это автоматическое уведомление системы Latvbelfruits.
           </p>
         </div>
       `

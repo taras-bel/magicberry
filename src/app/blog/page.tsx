@@ -17,7 +17,7 @@ interface BlogPost {
 }
 
 export const metadata = {
-  title: "Блог Magic Berry",
+  title: "Блог Latvbelfruits",
   description: "Новости, статьи и полезная информация о натуральных вяленых продуктах, здоровом питании и кулинарных идеях.",
 };
 
@@ -104,7 +104,7 @@ export default async function BlogPage({ searchParams }: Props) {
               <div className="inline-flex items-center gap-3 mb-6">
                 <div className="w-1 h-10 bg-gradient-to-b from-accent to-accent-gold rounded-full"></div>
                 <h1 className="text-4xl lg:text-5xl font-semibold text-gray-900 tracking-tight">
-                  Блог Magic Berry
+                  Блог Latvbelfruits
                 </h1>
               </div>
               <p className="text-xl text-gray-600 font-normal leading-relaxed mb-8">
@@ -123,7 +123,7 @@ export default async function BlogPage({ searchParams }: Props) {
             <div className="relative">
               <Image
                 src="/images/products/cranberry-heap-1200.webp"
-                alt="Блог Magic Berry"
+                alt="Блог Latvbelfruits"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"

@@ -43,7 +43,7 @@ export default function HeroSplit() {
               <div className="aspect-[4/5] relative overflow-hidden bg-gray-100">
                 <Image
                   src="/images/hero-bg.png"
-                  alt="Вяленая клюква Magic Berry"
+                  alt="Вяленая клюква Latvbelfruits"
                   fill
                   className="object-cover scale-105 hover:scale-100 transition-transform duration-700"
                   priority
