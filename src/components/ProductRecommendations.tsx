@@ -8,6 +8,41 @@ import { aiRecommendationService, ProductRecommendation } from "@/lib/ai-recomme
 import { useTranslations } from "@/lib/i18n";
 import { analytics } from "./GoogleAnalytics";
 
+const productImageOverrides: Record<string, { image: string; placeholder?: string }> = {
+  "cranberry-dried": {
+    image: "/images/products/cranberry-new-1200.png",
+    placeholder: "/images/products/cranberry-placeholder.jpg",
+  },
+  "vialenaya-klyukva": {
+    image: "/images/products/cranberry-new-1200.png",
+    placeholder: "/images/products/cranberry-placeholder.jpg",
+  },
+  "vialennaya-klyukva": {
+    image: "/images/products/cranberry-new-1200.png",
+    placeholder: "/images/products/cranberry-placeholder.jpg",
+  },
+  "cherry-dried": {
+    image: "/images/products/cherry-dried-new-1200.png",
+    placeholder: "/images/products/cherry-dried-placeholder.jpg",
+  },
+  "vialenaya-vishnya": {
+    image: "/images/products/cherry-dried-new-1200.png",
+    placeholder: "/images/products/cherry-dried-placeholder.jpg",
+  },
+  "vialennaya-vishnya": {
+    image: "/images/products/cherry-dried-new-1200.png",
+    placeholder: "/images/products/cherry-dried-placeholder.jpg",
+  },
+  "pumpkin-candied": {
+    image: "/images/products/pumpkin-sticks-1200.png",
+    placeholder: "/images/products/pumpkin-sticks-placeholder.jpg",
+  },
+  "tykva-konfitiur": {
+    image: "/images/products/pumpkin-sticks-1200.png",
+    placeholder: "/images/products/pumpkin-sticks-placeholder.jpg",
+  },
+};
+
 interface ProductRecommendationsProps {
   title?: string;
   type?: 'personal' | 'similar' | 'trending';
@@ -105,20 +140,29 @@ export default function ProductRecommendations({
       )}
 
       <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-        {recommendations.map((rec) => (
+        {recommendations.map((rec) => {
+          const override =
+            productImageOverrides[rec.product.id] || productImageOverrides[rec.product.slug];
+          const image = override?.image || rec.product.image;
+          const placeholder = override?.placeholder || rec.product.placeholder;
+
+          return (
           <Link
             key={rec.product.id}
             href={`/products/${rec.product.slug}`}
             className="group block"
           >
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-gray-100 mb-4">
-              {rec.product.image ? (
+              {image ? (
                 <Image
-                  src={rec.product.image}
+                  src={image}
                   alt={rec.product.name}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  placeholder={placeholder ? "blur" : "empty"}
+                  blurDataURL={placeholder}
+                  unoptimized
                 />
               ) : (
                 <div className="h-full w-full flex items-center justify-center text-gray-300 text-4xl">📦</div>
@@ -139,7 +183,7 @@ export default function ProductRecommendations({
               <p className="text-xs text-gray-400 line-clamp-1">{rec.reason}</p>
             </div>
           </Link>
-        ))}
+        )})}
       </div>
     </div>
   );

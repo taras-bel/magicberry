@@ -31,46 +31,49 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100 transition-all duration-300">
       <div className="container-custom">
-        <div className="flex h-20 items-center justify-between">
-          <Logo />
+        <div className="flex h-20 items-center justify-between gap-6">
+          <div className="flex items-center gap-12">
+            <Logo />
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {primaryNav.map((item) => (
-              <div key={item.label} className="relative group">
-                {item.children ? (
-                  <>
-                    <button className="flex items-center gap-1.5 py-4 text-sm font-medium uppercase tracking-widest text-primary hover:text-berry transition-colors">
-                      {t(`navigation.${item.label}`)}
-                      <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 text-gray-400 group-hover:text-berry" />
-                    </button>
-                    
-                    {/* Dropdown Menu */}
-                    <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 w-56">
-                      <div className="bg-white border border-gray-100 shadow-elegant rounded-lg p-2 flex flex-col">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.label}
-                            href={child.href || '#'}
-                            className="px-4 py-3 text-sm text-gray-600 hover:text-berry hover:bg-gray-50 rounded-md transition-colors text-left"
-                          >
-                            {t(`navigation.${child.label}`)}
-                          </Link>
-                        ))}
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {primaryNav.map((item) => (
+                <div key={item.label} className="relative group">
+                  {item.children ? (
+                    <>
+                      <button className="flex items-center gap-1.5 py-4 text-sm font-medium uppercase tracking-widest text-primary hover:text-berry transition-colors">
+                        {t(`navigation.${item.label}`)}
+                        <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180 text-gray-400 group-hover:text-berry" />
+                      </button>
+                      {/* Dropdown Menu */}
+                      <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 w-56">
+                        <div className="bg-white border border-gray-100 shadow-elegant rounded-lg p-2 flex flex-col">
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.label}
+                              href={child.href || '#'}
+                              className="px-4 py-3 text-sm text-gray-600 hover:text-berry hover:bg-gray-50 rounded-md transition-colors text-left"
+                            >
+                              {t(`navigation.${child.label}`)}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </>
-                ) : (
-                  <Link
-                    href={item.href || '#'}
-                    className="text-sm font-medium uppercase tracking-widest text-primary hover:text-berry transition-colors"
-                  >
-                    {t(`navigation.${item.label}`)}
-                  </Link>
-                )}
-              </div>
-            ))}
-          </nav>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href || '#'}
+                      className="text-sm font-medium uppercase tracking-widest text-primary hover:text-berry transition-colors"
+                    >
+                      {t(`navigation.${item.label}`)}
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
+          {/* Desktop Navigation placeholder for mobile to keep layout */}
+          <div className="hidden lg:block flex-1" />
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-6" suppressHydrationWarning>

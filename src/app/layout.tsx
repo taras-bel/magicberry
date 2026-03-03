@@ -23,6 +23,8 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 });
 
+const isProduction = process.env.NODE_ENV === "production";
+
 export const metadata: Metadata = {
   title: {
     template: "%s | Latvbelfruits",
@@ -88,11 +90,13 @@ export default function RootLayout({
       <body className={`${inter.variable} ${cormorant.variable} antialiased`}>
         <I18nProvider>
           <SessionProvider>
-            <ServiceWorker />
-            <Analytics />
-            <Suspense fallback={null}>
-            <GoogleAnalytics />
-            </Suspense>
+            {isProduction && <ServiceWorker />}
+            {isProduction && <Analytics />}
+            {isProduction && (
+              <Suspense fallback={null}>
+                <GoogleAnalytics />
+              </Suspense>
+            )}
             <Header />
             <main className="bg-[var(--background)]">{children}</main>
             <Footer />

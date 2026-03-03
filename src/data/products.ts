@@ -38,7 +38,7 @@ export const products: Product[] = [
     shortDescription: "Мягкие ароматные слайсы, идеальны для снеков",
     shortDescription_en: "Soft fragrant slices, perfect for snacks",
     category: "packaged",
-    image: "/images/products/pumpkin-slices-1200.png",
+    image: "/images/products/pumpkin-sticks-1200.png",
     placeholder: "/images/products/pumpkin-sticks-placeholder.jpg",
     unit: "г",
     priceFrom: 5.9,
