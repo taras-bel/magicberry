@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Product } from "@/types/catalog";
 import ProductsPageContent from "./ProductsPageContent";
-import { products as staticProducts } from "@/data/products";
+import { findStaticProduct, getCanonicalSlug } from "@/lib/staticProductLookup";
 
 export const metadata = {
   title: "Продукция | Latvbelfruits",
@@ -17,8 +17,7 @@ async function getProducts(category?: string, search?: string) {
     const { prisma } = await import("@/lib/prisma")
     
     const where: any = {
-      isActive: true,
-      slug: { not: 'vialennaya-vishnya' }
+      isActive: true
     }
 
     if (category) {
@@ -45,12 +44,12 @@ async function getProducts(category?: string, search?: string) {
 
     // Merge DB data with static translations
     const mergedProducts = dbProducts.map((product: any) => {
-      const staticData = staticProducts.find(p => p.slug === product.slug);
+      const staticData = findStaticProduct(product.slug);
       return {
         id: product.id,
         name: product.name,
         name_en: staticData?.name_en, // Add translation
-        slug: product.slug,
+        slug: getCanonicalSlug(product.slug),
         shortDescription: product.shortDescription,
         shortDescription_en: staticData?.shortDescription_en, // Add translation
         description: product.description,

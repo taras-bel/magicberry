@@ -3,7 +3,7 @@ import { redirect, notFound } from "next/navigation"
 import { authOptions } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 import OrderDetailContent from "./OrderDetailContent"
-import { products as staticProducts } from "@/data/products"
+import { findStaticProduct, getCanonicalSlug } from "@/lib/staticProductLookup"
 
 interface Props {
   params: {
@@ -44,11 +44,12 @@ export default async function OrderPage({ params }: Props) {
 
   // Обогащаем товары переводами из статического файла
   const enrichedItems = order.items.map((item: any) => {
-    const staticProduct = staticProducts.find(p => p.slug === item.product.slug)
+    const staticProduct = findStaticProduct(item.product.slug)
     return {
       ...item,
       product: {
         ...item.product,
+        slug: getCanonicalSlug(item.product.slug),
         name_en: staticProduct?.name_en || item.product.name,
         unit: staticProduct?.unit || item.product.unit,
         image: staticProduct?.image || item.product.image

@@ -2,6 +2,7 @@
 
 import { recipes, Recipe, RecipeIngredient } from '@/data/recipes';
 import { products } from '@/data/products';
+import { getCanonicalSlug } from '@/lib/staticProductLookup';
 
 // Типы для виртуального помощника
 export interface UserAvailableProducts {
@@ -102,7 +103,8 @@ class RecipeAssistant {
 
     for (const ingredient of missingIngredients) {
       if (ingredient.productSlug) {
-        const product = products.find(p => p.slug === ingredient.productSlug);
+        const canonicalSlug = getCanonicalSlug(ingredient.productSlug);
+        const product = products.find(p => p.slug === canonicalSlug);
         if (product) {
           recommended.push(product);
         }

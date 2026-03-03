@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
-import { products as staticProducts } from "@/data/products"
+import { findStaticProduct, getCanonicalSlug } from "@/lib/staticProductLookup"
 
 // Получить корзину пользователя
 export async function GET() {
@@ -28,11 +28,12 @@ export async function GET() {
 
     // Обогащаем товары данными из статического файла (переводы)
     const items = cart.items.map((item: any) => {
-      const staticProduct = staticProducts.find(p => p.slug === item.product.slug)
+      const staticProduct = findStaticProduct(item.product.slug)
       return {
         ...item,
         product: {
           ...item.product,
+          slug: getCanonicalSlug(item.product.slug),
           name_en: staticProduct?.name_en || item.product.name,
           unit: staticProduct?.unit || item.product.unit,
           image: staticProduct?.image || item.product.image

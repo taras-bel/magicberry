@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { productJsonLd } from "@/lib/seo";
 import ProductReviews from "@/components/ProductReviews";
 import ProductRecommendations from "@/components/ProductRecommendations";
-import { products as staticProducts } from "@/data/products";
+import { findStaticProduct, getCanonicalSlug } from "@/lib/staticProductLookup";
 
 type Props = { params: { slug: string } };
 
@@ -35,7 +35,7 @@ async function getProduct(slug: string) {
       ? product.reviews.reduce((sum: number, review: any) => sum + review.rating, 0) / product.reviews.length
       : 0;
 
-    const staticData = staticProducts.find(p => p.slug === product.slug);
+    const staticData = findStaticProduct(product.slug);
 
     // Преобразуем slug категории в тип Category
     const categorySlug = product.category?.slug || '';
@@ -52,7 +52,7 @@ async function getProduct(slug: string) {
     return {
       id: product.id,
       name: product.name,
-      slug: product.slug,
+      slug: getCanonicalSlug(product.slug),
       description: product.description || undefined,
       shortDescription: product.shortDescription || undefined,
       price: product.price || undefined,

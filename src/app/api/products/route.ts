@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
-import { products as staticProducts } from "@/data/products"
+import { findStaticProduct, getCanonicalSlug } from "@/lib/staticProductLookup"
 
 export const dynamic = 'force-dynamic'
 
@@ -16,8 +16,7 @@ export async function GET(request: NextRequest) {
 
     // Построить условия фильтрации
     const where: any = {
-      isActive: true,
-      slug: { not: 'vialennaya-vishnya' }
+      isActive: true
     }
 
     if (category) {
@@ -49,13 +48,13 @@ export async function GET(request: NextRequest) {
     ])
 
     const products = dbProducts.map((product: any) => {
-      const staticData = staticProducts.find(p => p.slug === product.slug);
+      const staticData = findStaticProduct(product.slug);
       
       return {
         id: product.id,
         name: product.name,
         name_en: staticData?.name_en, // Add translation
-        slug: product.slug,
+        slug: getCanonicalSlug(product.slug),
         shortDescription: product.shortDescription,
         shortDescription_en: staticData?.shortDescription_en, // Add translation
         description: product.description,
