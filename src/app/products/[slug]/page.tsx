@@ -65,7 +65,8 @@ async function getProduct(slug: string) {
       tags: product.tags ? JSON.parse(product.tags) : [],
       averageRating,
       reviewsCount: product.reviews.length,
-      rating: averageRating > 0 ? averageRating : undefined
+      rating: averageRating > 0 ? averageRating : undefined,
+      wildberriesUrl: staticData?.wildberriesUrl
     };
   } catch (error) {
     console.error('Error fetching product:', error);
@@ -152,7 +153,17 @@ export default async function ProductPage({ params }: Props) {
               )}
             </dl>
           </div>
-          <div className="sticky top-24 z-10">
+          <div className="sticky top-24 z-10 space-y-3">
+            {product.wildberriesUrl ? (
+              <a
+                href={product.wildberriesUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary w-full text-center"
+              >
+                Купить тут
+              </a>
+            ) : null}
             <a href="/contacts" className="btn btn-primary w-full text-center">
               Запросить опт / уточнить наличие
             </a>

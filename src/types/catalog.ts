@@ -20,4 +20,5 @@ export type Product = {
   unit?: string; // кг, шт, л
   tags?: string[];
   rating?: number; // рейтинг продукта
+  wildberriesUrl?: string; // ссылка на Wildberries для покупки
 };

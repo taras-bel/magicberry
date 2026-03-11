@@ -19,6 +19,7 @@ type Product = {
   unit?: string;
   image?: string;
   placeholder?: string;
+  wildberriesUrl?: string;
 };
 
 type Props = {
@@ -115,13 +116,22 @@ export default function ProductCard({ product }: Props) {
           )}
         </div>
 
-        <div className="pt-4 space-y-1">
+        <div className="pt-4 space-y-2">
           <h3 className="font-serif text-lg text-primary group-hover:text-berry transition-colors">
             {name}
           </h3>
-
         </div>
       </Link>
+      {product.wildberriesUrl && (
+        <a
+          href={product.wildberriesUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-2 inline-block btn btn-primary text-sm py-2 px-4 w-full text-center"
+        >
+          Купить тут
+        </a>
+      )}
     </div>
   );
 }

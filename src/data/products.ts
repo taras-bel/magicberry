@@ -4,6 +4,7 @@ export const products: Product[] = [
   {
     id: "cranberry-dried",
     slug: "vialenaya-klyukva",
+    wildberriesUrl: "https://www.wildberries.by/catalog/240248315/detail.aspx?size=377659942",
     name: "Вяленая клюква",
     name_en: "Dried Cranberry",
     shortDescription: "Яркая кисло-сладкая ягода, без консервантов",
@@ -87,6 +88,7 @@ export const products: Product[] = [
   {
     id: "blackcurrant",
     slug: "vialenaya-chernaya-smorodina",
+    wildberriesUrl: "https://www.wildberries.by/catalog/306590734/detail.aspx?size=464899559",
     name: "Черная смородина",
     name_en: "Dried Blackcurrant",
     shortDescription: "Классическая ягода с насыщенным вкусом",

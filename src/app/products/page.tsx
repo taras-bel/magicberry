@@ -58,6 +58,7 @@ async function getProducts(category?: string, search?: string) {
         unit: staticData?.unit || product.unit,
         image: staticData?.image || product.image,
         placeholder: staticData?.placeholder || product.placeholder,
+        wildberriesUrl: staticData?.wildberriesUrl,
         category: product.category ? {
           name: product.category.name,
           slug: product.category.slug
