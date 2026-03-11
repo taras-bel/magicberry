@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "@/lib/i18n";
 import Image from "next/image";
 
@@ -75,6 +76,19 @@ export default function StoresPageContent({ cmsStores }: { cmsStores: Store[] })
   ];
 
   const stores = staticStores;
+  const pageSize = 3;
+  const totalPages = Math.ceil(stores.length / pageSize);
+  const [page, setPage] = useState(0);
+
+  const visibleStores = stores.slice(page * pageSize, page * pageSize + pageSize);
+
+  const handlePrev = () => {
+    setPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
+  };
 
   return (
     <div className="mx-auto max-w-7xl space-y-0 px-6 py-20 lg:px-8">
@@ -103,14 +117,36 @@ export default function StoresPageContent({ cmsStores }: { cmsStores: Store[] })
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {stores.map((store, index) => (
-          <div key={store.title || index} className="card-premium p-6">
-            <p className="text-sm text-gray-700 font-normal leading-relaxed">
-              {store.title}
-            </p>
-          </div>
-        ))}
+      <div className="space-y-6">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {visibleStores.map((store, index) => (
+            <div key={store.title || index} className="card-premium p-6">
+              <p className="text-sm text-gray-700 font-normal leading-relaxed">
+                {store.title}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-center gap-4 mt-4">
+          <button
+            type="button"
+            onClick={handlePrev}
+            className="btn btn-secondary px-4 py-2 text-sm"
+          >
+            ← Назад
+          </button>
+          <span className="text-sm text-gray-600">
+            {page + 1} / {totalPages}
+          </span>
+          <button
+            type="button"
+            onClick={handleNext}
+            className="btn btn-secondary px-4 py-2 text-sm"
+          >
+            Вперед →
+          </button>
+        </div>
       </div>
     </div>
   );
